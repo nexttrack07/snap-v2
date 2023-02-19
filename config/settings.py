@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-qyiuuio_a1w2=da$ko^c_2u)rn%j(1m+3(0_yiq#ykh#41=)pc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://snap-v2-production.up.railway.app/']
 
 
 # Application definition
