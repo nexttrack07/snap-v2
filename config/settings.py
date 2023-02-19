@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-qyiuuio_a1w2=da$ko^c_2u)rn%j(1m+3(0_yiq#ykh#41=)pc
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+INTERNAL_IPS = ["127.0.0.1"]
 
 
 # Application definition
@@ -41,7 +42,9 @@ INSTALLED_APPS = [
     'accounts',
     'pages',
     # External
-    'tailwind'
+    'tailwind',
+    'theme',
+    'django_browser_reload',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -129,3 +133,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Set a custom user model
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+# Tailwind app
+TAILWIND_APP_NAME = 'theme'
