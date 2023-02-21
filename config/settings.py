@@ -32,6 +32,8 @@ INSTALLED_APPS = [
     'pages',
     'theme',
     # External
+    'crispy_forms',
+    'crispy_tailwind',
     'storages',
     'tailwind',
     'django_browser_reload',
@@ -129,10 +131,7 @@ if USE_SPACES:
     STATIC_URL = f'https://{AWS_S3_ENDPOINT_URL}/{AWS_LOCATION}/'
     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 else:
-    STATIC_URL = '/static/'
-    STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-STATICFILES_DIRS = (BASE_DIR / 'static',)
+    STATIC_URL = 'static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'mediafiles'
@@ -148,3 +147,11 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # Tailwind app
 TAILWIND_APP_NAME = 'theme'
+
+# Django crispy crispy_forms
+CRISPY_TEMPLATE_PACK = 'tailwind'
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'tailwind'
+
+# Auth URLs 
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
